@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class User {
 
+    private Long id;
     private String name;
     private ArrayList<Folder> folders;
 
@@ -13,6 +14,14 @@ public class User {
     }
 
     public User() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

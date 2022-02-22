@@ -2,6 +2,7 @@ package com.day2Homework.example.day2Homework.models;
 
 public class File {
 
+    private Long id;
     private String name;
     private String extension;
     private int size;
@@ -15,6 +16,14 @@ public class File {
     }
 
     public File() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

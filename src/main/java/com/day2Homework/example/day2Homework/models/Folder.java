@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Folder {
 
+    private Long id;
     private String title;
     private ArrayList<File> files;
     private User user;
@@ -15,6 +16,14 @@ public class Folder {
     }
 
     public Folder() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
