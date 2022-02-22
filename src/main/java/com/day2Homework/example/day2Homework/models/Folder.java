@@ -1,9 +1,14 @@
 package com.day2Homework.example.day2Homework.models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name="folders")
 public class Folder {
 
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
     private String title;
     private ArrayList<File> files;
