@@ -1,16 +1,28 @@
 package com.day2Homework.example.day2Homework.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name="users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name="name")
     private String name;
+
+    @JsonIgnoreProperties({"user"})
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private ArrayList<Folder> folders;
 
-    public User(String name, ArrayList<Folder> folders) {
+    public User(String name) {
         this.name = name;
-        this.folders = folders;
+        this.folders = new ArrayList<>();
     }
 
     public User() {
