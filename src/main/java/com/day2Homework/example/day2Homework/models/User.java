@@ -24,7 +24,6 @@ public class User {
 
     public User(String name) {
         this.name = name;
-        this.folders = new ArrayList<>();
     }
 
     public User() {
@@ -50,7 +49,7 @@ public class User {
         return folders;
     }
 
-    public void setFolders(ArrayList<Folder> folders) {
+    public void setFolders(List<Folder> folders) {
         this.folders = folders;
     }
 }
