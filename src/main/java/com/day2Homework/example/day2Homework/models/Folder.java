@@ -1,5 +1,7 @@
 package com.day2Homework.example.day2Homework.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 
@@ -10,13 +12,22 @@ public class Folder {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Long id;
+
+    @Column(name="title")
     private String title;
+
+    @JsonIgnoreProperties({"folder"})
+    @OneToMany(mappedBy="folder", fetch=FetchType.LAZY)
     private ArrayList<File> files;
+
+    @JsonIgnoreProperties({"folder"})
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable=false)
     private User user;
 
-    public Folder(String title, ArrayList<File> files, User user) {
+    public Folder(String title, User user) {
         this.title = title;
-        this.files = files;
+        this.files = new ArrayList<>();
         this.user = user;
     }
 
