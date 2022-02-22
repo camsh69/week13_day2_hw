@@ -28,7 +28,7 @@ class Day2HomeworkApplicationTests {
 
 	@Test
 	public void createUserAndFolderAndFile(){
-		User user = new User("Joe Bloggs");
+		User user = new User("Joe Smith");
 		userRepository.save(user);
 
 		Folder folder1 = new Folder("Documents", user);

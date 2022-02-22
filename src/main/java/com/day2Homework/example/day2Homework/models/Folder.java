@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="folders")
@@ -18,7 +19,7 @@ public class Folder {
 
     @JsonIgnoreProperties({"folder"})
     @OneToMany(mappedBy="folder", fetch=FetchType.LAZY)
-    private ArrayList<File> files;
+    private List<File> files;
 
     @JsonIgnoreProperties({"folder"})
     @ManyToOne
@@ -50,7 +51,7 @@ public class Folder {
         this.title = title;
     }
 
-    public ArrayList<File> getFiles() {
+    public List<File> getFiles() {
         return files;
     }
 

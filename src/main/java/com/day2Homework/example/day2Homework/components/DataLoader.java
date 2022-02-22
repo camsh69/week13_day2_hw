@@ -43,6 +43,7 @@ public class DataLoader implements ApplicationRunner {
         fileRepository.save(file1);
 
         File file2 = new File("Cover Letter", "doc", 4, folder1);
+        fileRepository.save(file2);
 
         File file3 = new File("Holiday Snap", "jpeg", 6, folder2);
         fileRepository.save(file3);
