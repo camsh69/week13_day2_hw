@@ -1,5 +1,6 @@
 package com.day2Homework.example.day2Homework.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -16,13 +17,14 @@ public class Folder {
     @Column(name="title")
     private String title;
 
-    @JsonIgnoreProperties({"folder"})
-    @OneToMany(mappedBy="folder", fetch=FetchType.LAZY)
+//    @JsonIgnoreProperties({"folder"})
+    @JsonBackReference
+    @OneToMany(mappedBy="folder")
     private List<File> files;
 
-    @JsonIgnoreProperties({"folder"})
+//    @JsonIgnoreProperties({"folder"})
     @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
+    @JoinColumn(name="user_id")
     private User user;
 
     public Folder(String title, User user) {

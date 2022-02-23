@@ -1,8 +1,10 @@
 package com.day2Homework.example.day2Homework.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,12 +19,14 @@ public class User {
     @Column(name="name")
     private String name;
 
-    @JsonIgnoreProperties({"user"})
+//    @JsonIgnoreProperties({"user"})
+    @JsonBackReference
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Folder> folders;
 
     public User(String name) {
         this.name = name;
+        this.folders = new ArrayList<>();
     }
 
     public User() {

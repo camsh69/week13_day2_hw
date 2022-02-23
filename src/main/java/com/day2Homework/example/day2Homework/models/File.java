@@ -22,7 +22,7 @@ public class File {
     @Column(name="size")
     private int size;
 
-    @JsonIgnoreProperties({"files"})
+//    @JsonIgnoreProperties({"files"})
     @ManyToOne
     @JoinColumn(name = "folder_id", nullable = false)
     private Folder folder;
